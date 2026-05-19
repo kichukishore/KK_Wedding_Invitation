@@ -220,9 +220,9 @@ function AestheticBackground() {
 function BackgroundImageGallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
-    { src: "/ring.png", title: "The Beginning", date: "Our Story" },
-    { src: "/kichu2.png", title: "Growing Together", date: "Moments Shared" },
-    { src: "/image3.png", title: "Pure Love", date: "Forever" },
+    { src: "/KK_Wedding_Invitation/ring.png", title: "The Beginning", date: "Our Story" },
+    { src: "/KK_Wedding_Invitation/kichu2.png", title: "Growing Together", date: "Moments Shared" },
+    { src: "/KK_Wedding_Invitation/image3.png", title: "Pure Love", date: "Forever" },
   ];
 
   const handleImageClick = () => {
@@ -508,7 +508,7 @@ export default function WeddingInvitation() {
       `}} />
 
       {/* --- AUDIO ELEMENT --- */}
-      <audio ref={audioRef} loop src="/wedding-music.mp3" />
+      <audio ref={audioRef} loop src="/KK_Wedding_Invitation/wedding-music.mp3" />
 
       {/* --- MUSIC FLOATING BUTTON --- */}
       <div className="fixed top-6 right-6 z-50 no-print">
@@ -540,7 +540,7 @@ export default function WeddingInvitation() {
               className="absolute top-[15%] text-center"
             >
                <p style={{ color: "#8b4513", fontSize: 24, fontStyle: "italic", marginBottom: 8 }}>
-                Kishore & Keerthana Love
+                Kishore & Keerthana
               </p>
               <p style={{ color: "rgba(139,69,19,0.5)", fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase" }}>
                 Wedding Invitation
