@@ -222,7 +222,7 @@ function BackgroundImageGallery() {
   const images = [
     { src: "/KK_Wedding_Invitation/ring.png", title: "The Beginning", date: "Our Story" },
     { src: "/KK_Wedding_Invitation/kichu2.png", title: "Growing Together", date: "Moments Shared" },
-    { src: "/KK_Wedding_Invitation/image3.png", title: "Pure Love", date: "Forever" },
+    { src: "/KK_Wedding_Invitation/Image3.png", title: "Pure Love", date: "Forever" },
   ];
 
   const handleImageClick = () => {
