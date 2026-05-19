@@ -1,14 +1,9 @@
 /** @type {import('next').NextConfig} */
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ? `/${process.env.NEXT_PUBLIC_BASE_PATH}` : "";
-const assetPrefix = basePath;
-
 const nextConfig = {
-  output: 'export', // generate a static export for GitHub Pages
-  basePath,
-  assetPrefix,
-  trailingSlash: true,
+  output: 'export', // Tells Next.js to generate a static HTML/CSS/JS export
+  basePath: '/KK_Wedding_Invitation', // Matches your GitHub repository name
   images: {
-    unoptimized: true, // necessary for static export
+    unoptimized: true, // Required for static export as Next.js image optimization needs a server
   },
 };
 
