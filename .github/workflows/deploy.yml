@@ -2,7 +2,7 @@ name: Deploy Next.js site to Pages
 
 on:
   push:
-    branches: ["main"] # Change to "master" if your default branch uses that name
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Detect package manager
         id: detect-package-manager
@@ -34,15 +34,15 @@ jobs:
             echo "runner=npx --no-install" >> $GITHUB_OUTPUT
             exit 0
           else
-            echo "Unable to determine package manager"Loc
+            echo "Unable to determine package manager"
             exit 1
           fi
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: "20"
-          cache: ${{ steps.detect-package-manager().outputs.manager }}
+          node-version: "24"
+          cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -54,7 +54,7 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./out
 
