@@ -422,8 +422,8 @@ export default function WeddingInvitation() {
 
   const downloadInvite = async () => {
     try {
-      // Prefer a static image placed in the public folder.
-      const staticPath = "/Invitaionofkk.png";
+      // Prefer a static image placed in the public folder (respecting BASE_PATH).
+      const staticPath = `${BASE_PATH}/Invitaionofkk.png`;
       try {
         const head = await fetch(staticPath, { method: "HEAD" });
         if (head.ok) {
