@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Calendar, Clock, Heart, Users, Download, Volume2, VolumeX, ChevronLeft, ChevronRight } from "lucide-react";
 import { toPng } from "html-to-image";
 
+// Respect repository base path for GitHub Pages (set NEXT_PUBLIC_BASE_PATH=<repo-name>)
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ? `/${process.env.NEXT_PUBLIC_BASE_PATH}` : "";
+
 /* ─────────────────────────────────────────
    COUNTDOWN HOOK
 ───────────────────────────────────────── */
@@ -220,9 +223,9 @@ function AestheticBackground() {
 function BackgroundImageGallery() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
-    { src: "/KK_Wedding_Invitation/ring.png", title: "The Beginning", date: "Our Story" },
-    { src: "/KK_Wedding_Invitation/kichu2.png", title: "Growing Together", date: "Moments Shared" },
-    { src: "/KK_Wedding_Invitation/Image3.png", title: "Pure Love", date: "Forever" },
+    { src: "ring.png", title: "The Beginning", date: "Our Story" },
+    { src: "kichu2.png", title: "Growing Together", date: "Moments Shared" },
+    { src: "Image3.png", title: "Pure Love", date: "Forever" },
   ];
 
   const handleImageClick = () => {
@@ -508,7 +511,7 @@ export default function WeddingInvitation() {
       `}} />
 
       {/* --- AUDIO ELEMENT --- */}
-      <audio ref={audioRef} loop src="/KK_Wedding_Invitation/wedding-music.mp3" />
+      <audio ref={audioRef} loop src={`wedding-music.mp3`} />
 
       {/* --- MUSIC FLOATING BUTTON --- */}
       <div className="fixed top-6 right-6 z-50 no-print">
@@ -540,7 +543,7 @@ export default function WeddingInvitation() {
               className="absolute top-[15%] text-center"
             >
                <p style={{ color: "#8b4513", fontSize: 24, fontStyle: "italic", marginBottom: 8 }}>
-                Kishore & Keerthana
+                Kishore & Keerthana Love
               </p>
               <p style={{ color: "rgba(139,69,19,0.5)", fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase" }}>
                 Wedding Invitation
@@ -765,7 +768,7 @@ export default function WeddingInvitation() {
                   transition={{ duration: 0.9 }}
                   className="flex flex-col gap-12 items-center"
                 >
-                  <SingleImage src="/image2.png" alt="Engagement" title="The Forever Promise" />
+                  <SingleImage src={`image2.png`} alt="Engagement" title="The Forever Promise" />
                   <div className="text-center max-w-lg">
                     <p className="text-[#7a5a4a] text-base leading-relaxed font-light font-[Georgia]">
                       In front of our loved ones, we chose each other. A moment of pure joy that turned our love story into a lifelong commitment.
