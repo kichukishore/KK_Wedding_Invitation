@@ -422,6 +422,23 @@ export default function WeddingInvitation() {
 
   const downloadInvite = async () => {
     try {
+      // Prefer a static image placed in the public folder.
+      const staticPath = "/Invitaionofkk.png";
+      try {
+        const head = await fetch(staticPath, { method: "HEAD" });
+        if (head.ok) {
+          const link = document.createElement("a");
+          link.href = staticPath;
+          link.download = "Invitaionofkk.png";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          return;
+        }
+      } catch (e) {
+        // ignore fetch errors and fall back to DOM capture
+      }
+
       const element = downloadRef.current;
       if (!element) {
         alert("Invitation card not found");
