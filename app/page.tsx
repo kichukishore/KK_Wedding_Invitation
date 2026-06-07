@@ -422,30 +422,34 @@ export default function WeddingInvitation() {
 
   const downloadInvite = async () => {
     try {
-      // Prefer a static image placed in the public folder (respecting BASE_PATH).
-      const staticPath = `public/Invitationofkk.png`;
+      // Try to download the static invitation image from public folder
+      const staticPath = `${BASE_PATH}/Invitationofkk.png`;
+      
       try {
-        const head = await fetch(staticPath, { method: "HEAD" });
-        if (head.ok) {
+        const response = await fetch(staticPath);
+        if (response.ok) {
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
           const link = document.createElement("a");
-          link.href = staticPath;
+          link.href = url;
           link.download = "Invitationofkk.png";
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
           return;
         }
       } catch (e) {
-        // ignore fetch errors and fall back to DOM capture
+        console.warn("Static image not found, falling back to screenshot capture.");
       }
 
+      // Fallback: capture the card as screenshot
       const element = downloadRef.current;
       if (!element) {
-        alert("Invitation card not found");
+        alert("Sorry! Invitation card not found. Please try again.");
         return;
       }
 
-      // Wait for any animations to settle
       await new Promise(r => setTimeout(r, 300));
 
       const image = await toPng(element, {
@@ -456,13 +460,13 @@ export default function WeddingInvitation() {
 
       const link = document.createElement("a");
       link.href = image;
-      link.download = "Wedding-Invitation-Kishore-Keerthana.png";
+      link.download = "Invitationofkk.png";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     } catch (err) {
-      console.error("Failed to download invitation:", err);
-      alert("Failed to download. Please try again.");
+      console.error("Download failed:", err);
+      alert("Sorry! Could not download invitation. Please try again later.");
     }
   };
 
