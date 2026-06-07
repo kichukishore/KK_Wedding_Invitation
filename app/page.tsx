@@ -725,7 +725,6 @@ export default function WeddingInvitation() {
               <span className="text-[#8b4513] text-xl">✧</span>
               <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-[#8b4513]/40" />
             </div>
-#test
             {/* ── STORY SECTION (Hidden on Print) ── */}
             <section ref={storyRef} className="py-16 relative no-print">
               <div className="max-w-4xl mx-auto px-6">
